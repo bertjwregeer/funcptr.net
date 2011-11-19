@@ -1,27 +1,40 @@
-<%page args="post"/>
-<div class="blog_post">
-  <a name="${post.slug}"></a>
-  <h2 class="blog_post_title"><a href="${post.permapath()}" rel="bookmark" title="Permanent Link to ${post.title}">${post.title}</a></h2>
-  <small>${post.date.strftime("%B %d, %Y at %I:%M %p")} | categories: 
-<% 
-   category_links = []
-   for category in post.categories:
-       if post.draft:
-           #For drafts, we don't write to the category dirs, so just write the categories as text
-           category_links.append(category.name)
-       else:
-           category_links.append("<a href='%s'>%s</a>" % (category.path, category.name))
-%>
-${", ".join(category_links)}
-% if bf.config.blog.disqus.enabled:
- | <a href="${post.permalink}#disqus_thread">View Comments</a>
-% endif
-</small><p/>
-  <div class="post_prose">
+<%page args="post, comments=None"/>
+
+<article>
+    <header>
+        <title>${post.title}</title>
+        <!-- date published or updated -->
+        <time pubdate datetime="${self.post_time_full(post)}">
+            <span class='time'>${post.date.strftime("%H:%M")}</span>
+            <span class='daymonth'>${post.date.strftime("%d")} <abbr title="${post.date.strftime("%B")}">${post.date.strftime("%b")}</abbr></span>
+            <span class='year'>${post.date.strftime("%Y")}</span>
+        </time>
+    </header>
+    <section>
+    <h1><a href="${post.permapath()}">${post.title}</a></h1>
     ${self.post_prose(post)}
-  </div>
-</div>
+    </section>
+    ${self.categories(post)}
+
+    % if comments is not None:
+        ${comments(post)}
+    % endif
+</article>
 
 <%def name="post_prose(post)">
   ${post.content}
+</%def>
+
+<%def name="post_time_full(post)">${post.date.strftime("%y-%m-%dT%H:%M:%S%z")}</%def>
+
+<%def name="categories(post)">
+    <ul class="categories">
+    % for category in post.categories:
+        % if post.draft == True:
+        <li>${category.name}</li>
+        % else:
+        <li><a href='${category.path}'>${category.name}</a></li>
+        % endif
+    % endfor
+    </ul>
 </%def>
