@@ -46,3 +46,8 @@ blog.description = "Your Blog's short description"
 
 ## blog_timezone -- the timezone that you normally write your blog posts from
 blog.timezone = "US/Eastern"
+# Disable the custom index
+blog.custom_index = False
+
+# Add another "filter"
+blog.post_default_filters['md'] = 'markdown'

@@ -4,7 +4,7 @@ import logging
 config = {
     'name': "Markdown",
     'description': "Renders markdown formatted text to HTML",
-    'aliases': ['markdown']
+    'aliases': ['markdown', 'md']
     }
 
 
@@ -13,4 +13,4 @@ logging.getLogger("MARKDOWN").setLevel(logging.ERROR)
 
 
 def run(content):
-    return markdown.markdown(content)
+    return markdown.markdown(content, ['codehilite','footnotes'])
