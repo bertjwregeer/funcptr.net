@@ -125,8 +125,6 @@ class Post(object):
         if self.filters is None:
             try:
                 file_extension = os.path.splitext(self.filename)[-1][1:]
-                print file_extension
-                print bf.config.controllers.blog.post_default_filters
                 self.filters = bf.config.controllers.blog.post_default_filters[
                     file_extension]
             except KeyError:
