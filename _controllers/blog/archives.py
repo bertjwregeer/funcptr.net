@@ -59,10 +59,8 @@ def write_yearly_archives():
         
         monthly = {}
         for post in sorted(posts, reverse=True):
-            print post.date
             monthly.setdefault((post.date.strftime("%m"), post.date.strftime("%B")), list()).append(post)
 
-        print monthly
         monthly = sorted(monthly.items(), key=lambda x: x[0][0], reverse=True)
         chronological.write_yearly_archive(monthly, root=link, year=year, year_next=ynext, year_previous=yprev)
 
