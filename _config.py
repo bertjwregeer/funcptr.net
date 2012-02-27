@@ -40,7 +40,7 @@ blog.path = ""
 
 ## blog_name -- Your Blog's name.
 # This is used repeatedly in default blog templates
-blog.name = "0x58"
+blog.name = "funcptr"
 
 ## blog_description -- A short one line description of the blog
 # used in the RSS/Atom feeds.
