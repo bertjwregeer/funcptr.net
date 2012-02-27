@@ -6,8 +6,8 @@
         <!-- date published or updated -->
         <time pubdate datetime="${self.post_time_full(post)}">
             <span class='time'>${post.date.strftime("%H:%M")}</span>
-            <span class='daymonth'>${post.date.strftime("%d")} <abbr title="${post.date.strftime("%B")}">${post.date.strftime("%b")}</abbr></span>
-            <span class='year'>${post.date.strftime("%Y")}</span>
+            <span class='daymonth'><a href="/${post.date.strftime("%Y/%m/%d")}/">${post.date.strftime("%d")}</a> <abbr title="${post.date.strftime("%B")}"><a href="/${post.date.strftime("%Y/%m")}/">${post.date.strftime("%b")}</a></abbr></span>
+            <span class='year'><a href="/${post.date.strftime("%Y")}/">${post.date.strftime("%Y")}</a></span>
         </time>
     </header>
     <section>
