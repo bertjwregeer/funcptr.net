@@ -36,8 +36,6 @@
             </header>
             <nav>
                 ${next.menu()}
-                <p>Hello</p>
-                <p>What what?</p>
             </nav>
         </aside>
 
@@ -54,6 +52,7 @@
     <%include file="footer.mako" />
 </%def>
 <%def name="menu()">
+    <%include file="menu.mako" />
 </%def>
 <%def name="post_title()" />
 <%def name="cur_title()">${bf.config.blog.name}${self.page_title()}</%def>
