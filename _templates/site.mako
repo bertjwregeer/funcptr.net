@@ -1,7 +1,7 @@
 <%inherit file="base.mako" />\
 <!DOCTYPE html>
 <html lang="en">
-    <!-- Copyright (c) 2011 Bert JW Regeer -->
+    <!-- Copyright (c) 2012 Bert JW Regeer -->
     <head>
         <title>${self.cur_title()}</title>
         <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="${bf.util.site_path_helper(bf.config.blog.path,'/feed/index.xml')}" />
