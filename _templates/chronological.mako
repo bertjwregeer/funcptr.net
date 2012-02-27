@@ -5,12 +5,14 @@
   <div class="after_post"><a href="${post.permalink}#disqus_thread">Read and Post Comments</a></div>
 % endif
 % endfor
+<ul class="prevnext">
 % if prev_link:
- <a href="${prev_link}">« Previous Page</a>
+ <li><a href="${prev_link}">« Previous Page</a></li>
 % endif
-% if prev_link and next_link:
-  --  
+% if next_link and prev_link:
+ <li>•</li>
 % endif
 % if next_link:
- <a href="${next_link}">Next Page »</a>
+ <li><a href="${next_link}">Next Page »</a></li>
 % endif
+</ul>
