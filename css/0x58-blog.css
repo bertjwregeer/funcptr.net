@@ -38,7 +38,6 @@ ol, ul {
 	list-style: none;
 }
 
-
 table {
 	border-collapse: separate;
 	border-spacing: 0;
@@ -72,14 +71,12 @@ html {
 }
 
 body {
-	/* font-family: 'Linux Libertine', Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, 'Times New Roman', serif; */
 	font-family: Verdana, 'Bitstream Vera Sans', sans-serif;
 	font-size: 13px;
 	min-width: 680px;
 	width: 80%;
 	margin: auto;
 	color: #000;
-	/*color: #cfcfcf;*/
 	position: relative;
 	min-height: 100%;
 }
@@ -95,21 +92,6 @@ header h1 {
 	color: #ee7b00;
 }
 
-/*
-These properties would work, but they are CSS 3 only and they don't work in older browsers
-
-box-sizing: border-box;
-
--moz-box-sizing: border-box;
--webkit-box-sizing: border-box;
-
-This is a simple work around, hopefully in the future I can get rid of the extra HTML that is generated.
-
-*/
-
-/*#Whole {
-}*/
-
 #Mwrapper {
 	display: block;
 	border: 0;
@@ -120,6 +102,14 @@ This is a simple work around, hopefully in the future I can get rid of the extra
 
 #MainContent {	
 	padding: 10px 30px 0 0;
+}
+
+#MainContent ul.prevnext {
+	text-align: right;
+}
+
+#MainContent ul.prevnext li {
+	display: inline;
 }
 
 aside {
@@ -133,13 +123,8 @@ aside {
 	margin-left: -10000px;
 	padding-left: 10000px;
 	background-color: #404040;
-	border-right: 2px solid #ee7b00;
+	border-right: 4px solid #ee7b00;
 	color: #cfcfcf;
-	
-/*	-moz-box-shadow: 0 0 5px 5px #ee7b00;
-	-webkit-box-shadow: 0 5px 5px 5px #ee7b00;
-	box-shadow-right: 0 0 2px 2px #ee7b00;
-	overflow: hidden;*/
 }
 
 aside > nav {
@@ -148,32 +133,21 @@ aside > nav {
 	padding: 10px;
 	padding-right: 10px;
 	line-height: 19px;
-	
-	/*
-	background-color: orange;
-	
-	TODO: Remove when final
-	
-	WTF was Mozilla smoking when they named their elements differently?
-	-moz-border-radius-bottomleft: 20px 20px;
-	-webkit-border-bottom-left-radius: 20px 20px;
-	border-bottom-left-radius: 20px 20px;
-	*/
 }
 
 nav > ul li h1 {
 	font-size: 1.3em;
-	line-height: 2.5em;
+	line-height: 2.5;
 	text-transform: uppercase;
 	color: #afafaf;
 }
 
-nav > ul li a {
+nav > ul li a, aside > header > h1 > a {
 	color: #ee7b00;
 	text-decoration: none;
 }
 
-nav > ul li a:visited {
+nav > ul li a:visited, aside > header > h1 > a:visited {
 	color: #ee7b00;
 	text-decoration: none;
 }
@@ -230,6 +204,7 @@ article > header {
 	padding-top: 40px;
 	margin-right: -20px;
 	margin-left: 10px;
+	margin-bottom: 10px;
 }
 
 article > header > time {
@@ -237,7 +212,7 @@ article > header > time {
 	background: #fff;
 	width: 100%;
 	height: 100%;
-	color: #ee7b00;
+	color: #cfcfcf;
 	margin-top: 1px;
 	-moz-box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.3);
 	-webkit-box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.3);
@@ -266,35 +241,75 @@ article > header > time span.daymonth {
 article > header > time span.year {
 	display: block;
 	font-size: 1.2em;
-	padding-bottom: 10px;
+	padding-bottom: 15px;
+}
+
+article > header > time a {
+    color: #cfcfcf;
+    text-decoration: none;
+}
+
+article > header > time a:hover {
+    text-decoration: underline;
 }
 
 article > section {
 	text-align: justify;
-	min-height: 120px;
+}
+
+article > ul.categories {
+	clear: both;
+	text-align: right;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+ul.categories li, ul.prevnext li {
+	display: inline;
+	margin-left: 1em;
+}
+
+ul.categories li a, ul.prevnext li a {
+    color: #000;
+    text-decoration: underline;
+}
+
+ul.categories li a:hover, ul.prevnext li a:hover {
+	color: #afafaf;
+    text-decoration: none;
+    background-color: #616161;
 }
 
 section a {
-	color: #afafaf;
-	text-decoration: underline;
+	background-color: #afafaf;
+    color: #000;
+	text-decoration: none;
 }
 
 section a:visited {
-	color: #cfcfcf;
+	color: #000;
 	text-decoration: underline;
 }
 
 section a:hover {
 	color: #afafaf;
 	background-color: #616161;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
-section code {
-	color: #00bb00;
-	display: inline;
-	font-family: Consolas, 'Andale Mono', Monaco, 'Liberation Mono', 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', monospace;
-	white-space: pre;
+section a[rev="footnote"], section a[rel="footnote"] {
+    background-color: inherit;
+}
+
+/* This is for the code highlighting sections */
+section div.codehilite, section div.pygments_murphy {
+	margin-bottom: 15px;
+	max-height: 48em;
+	line-height: 1.2;
+	overflow: auto;
+	background: #fff;
+	padding: 10px 0 10px 20px;
+	clear: both;
 }
 
 section pre {
@@ -302,13 +317,16 @@ section pre {
 	overflow: auto;
 	height: auto;
 	max-width: 100%;
-	max-height: 40em;
-	padding-left: 2em;
-	margin-bottom: 5px;
+	color: #00bb00;
+	display: inline;
+	font-family: Menlo, Consolas, 'Andale Mono', Monaco, 'Liberation Mono', 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', monospace;
+	white-space: pre;
 }
 
-section pre code {
-	line-height: 1em;
+section code {
+	font-family: Menlo, Consolas, 'Andale Mono', Monaco, 'Liberation Mono', 'Bitstream Vera Sans Mono', 'DejaVu Sans Mono', monospace;
+	white-space: pre;
+
 }
 
 section p {
@@ -321,6 +339,88 @@ section p + p {
 	text-indent: 15px;
 }
 
+section div + p {
+	text-indent: 15px;
+}
+
+
+section ul {
+	margin-bottom: 5px;
+}
+
+section ul li:before {
+	content: "\00BB \0020";
+}
+
+section h1 {
+	font-size: 150%;
+	line-height: 1.5;
+}
+
+section h2 {
+	font-size: 115%;
+	line-height: 1.5;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+section h3 {
+	font-weight: normal;
+	font-size: 110%;
+	line-height: 1.3;
+	margin-bottom: 10px;
+}
+
+section h4, section h5, section h6 {
+	font-size: 1em;
+	font-weight: bold;
+	line-height: 1.3;
+}
+
+section p + h1, section p + h2, section p + h3 {
+	margin-top: 10px;
+}
+
+section ol {
+    list-style: inside;
+    list-style-type: decimal-leading-zero;
+}
+
+section ul {
+    list-style: inside;
+    list-style-type: disc;
+}
+
+/* Specialise the first h1 in a section, make it look like a title */
+
+section > h1:first-of-type {
+	height: 40px;
+	font-size: 1.3em;
+	line-height: 2.5;
+	background: #404040;
+	padding: 0 0 0 10px;
+	margin-bottom: 10px;
+	text-transform: capitalize;	
+	border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+section h1:first-of-type a {
+	color: #ee7b00;
+    background-color: inherit;
+	text-decoration: none;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+section h1:first-of-type a:hover {
+    background-color: #616161
+}
+
+/* 
+ * Drop-cap on the first letter 
+ */
+
 section > p:first-of-type:first-letter {
 	display: block;
 	padding-top: 8px;
@@ -330,58 +430,18 @@ section > p:first-of-type:first-letter {
 	font-weight: normal;
 }
 
+/* 
+ * bold the first line of the paragraph after the dropcap to help
+ * the user start reading the text
+ */
+
 section > p:first-of-type:first-line {
 	font-weight: bold;
 }
 
-ul {
-	margin-bottom: 5px;
-}
-
-ul li:before {
-	content: "\00BB \0020";
-}
-
-section h1 {
-	font-size: 150%;
-	line-height: 1.5em;
-}
-
-section h2 {
-	font-size: 115%;
-	line-height: 1.5em;
-	font-weight: bold;
-	margin-bottom: 10px;
-}
-
-section h3 {
-	font-weight: normal;
-	font-size: 110%;
-	line-height: 1.3em;
-	margin-bottom: 10px;
-}
-
-section h4, section h5, section h6 {
-	font-size: 1em;
-	font-weight: bold;
-	line-height: 1.3em;
-}
-
-section p + h1, section p + h2, section p + h3 {
-	margin-top: 10px;
-}
-
-section > h1:first-of-type {
-	height: 40px;
-	font-size: 1.7em;
-	background: #404040;
-	padding-left: 10px;
-	text-transform: capitalize;	
-	border-bottom: 1px solid black;
-}
-
-section h1:first-of-type a {
-	color: #ee7b00;
-	text-decoration: none;
-	vertical-align: middle;
+/*
+ * Redifine stuff that was undefined at the top
+ */
+sup {
+    vertical-align: super;
 }
