@@ -15,7 +15,7 @@ config = {
         "priority": 90.0,
 
         #Posts
-        "post.date_format": "%Y/%m/%d %H:%M:%S"
+        "post.date_format": "%Y-%m-%d %H:%M:%S"
         }
 
 def run():

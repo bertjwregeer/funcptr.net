@@ -98,7 +98,7 @@ class Post(object):
         
     def __repr__(self): #pragma: no cover
         return u"<Post title='{0}' date='{1}'>".format(
-            self.title, self.date.strftime("%Y/%m/%d %H:%M:%S"))
+            self.title, self.date.strftime("%Y-%m-%d %H:%M:%S"))
      
     def __parse(self):
         """Parse the yaml and fill fields"""
@@ -223,13 +223,21 @@ class Post(object):
         except KeyError:
             self.guid = self.permalink
         try:
-            self.date = pytz.timezone(self.__timezone).localize(
-                datetime.datetime.strptime(y['date'], config.date_format))
+            # Since switching to yyyy-mm-dd hh:mm:ss y['date'] is already a valid datetime.datetime
+            if type(y['date']) is datetime.datetime:
+                self.date = pytz.timezone(self.__timezone).localize(y['date'])
+            else:
+                self.date = pytz.timezone(self.__timezone).localize(
+                    datetime.datetime.strptime(y['date'], config.date_format))
         except KeyError:
             pass
         try:
-            self.updated = pytz.timezone(self.__timezone).localize(
-                datetime.datetime.strptime(y['updated'], config.date_format))
+            # Since switching to yyyy-mm-dd hh:mm:ss y['date'] is already a valid datetime.datetime
+            if type(y['date']) is datetime.datetime:
+                self.updated = pytz.timezone(self.__timezone).localize(y['updated'])
+            else:
+                self.updated = pytz.timezone(self.__timezone).localize(
+                    datetime.datetime.strptime(y['updated'], config.date_format))
         except KeyError:
             pass
         try:
