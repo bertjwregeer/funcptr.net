@@ -10,7 +10,7 @@
     <ul>
     <% bf.config.social.sort(key=lambda p: p.get("title")) %>
     % for urls in bf.config.social:
-        <li><a href="${urls['url']}" alt="${urls['alt']}">${urls['title']}</a></li>
+        <li><a href="${urls['url']}" title="${urls['alt']}">${urls['title']}</a></li>
     % endfor
     </ul>
     </li>

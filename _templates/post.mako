@@ -2,7 +2,6 @@
 
 <article>
     <header>
-        <title>${post.title}</title>
         <!-- date published or updated -->
         <time pubdate datetime="${self.post_time_full(post)}">
             <span class='time'>${post.date.strftime("%H:%M")}</span>
@@ -25,7 +24,7 @@
   ${post.content}
 </%def>
 
-<%def name="post_time_full(post)">${post.date.strftime("%y-%m-%dT%H:%M:%S%z")}</%def>
+<%def name="post_time_full(post)">${post.date.isoformat()}</%def>
 
 <%def name="categories(post)">
     <ul class="categories">
