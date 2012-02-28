@@ -1,7 +1,7 @@
 /* @override http://127.0.0.1:8080/css//0x58-blog.css */
 
 /*
- * Copyright (c) 2011 Bert JW Regeer;
+ * Copyright (c) 2012 Bert JW Regeer;
  *
  * CSS Reset from: Eric Meyer (http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/)
 ***/
@@ -184,7 +184,7 @@ footer > a:hover {
 	background-color: #616161;
 }
 
-article {
+article, #Yearly {
 	margin-bottom: 1em;
 	line-height: 18px;
 	
@@ -201,7 +201,7 @@ article > header {
 	float: right;
 	margin: 0;
 	padding: 0;
-	padding-top: 40px;
+    margin-top: 40px;
 	margin-right: -20px;
 	margin-left: 10px;
 	margin-bottom: 10px;
@@ -269,12 +269,12 @@ ul.categories li, ul.prevnext li {
 	margin-left: 1em;
 }
 
-ul.categories li a, ul.prevnext li a {
+ul.categories li a, ul.prevnext li a, .monthly a {
     color: #000;
     text-decoration: underline;
 }
 
-ul.categories li a:hover, ul.prevnext li a:hover {
+ul.categories li a:hover, ul.prevnext li a:hover, .monthly a:hover {
 	color: #afafaf;
     text-decoration: none;
     background-color: #616161;
@@ -301,6 +301,10 @@ section a[rev="footnote"], section a[rel="footnote"] {
     background-color: inherit;
 }
 
+section a[rel="footnote"] {
+    text-decoration: underline;
+}
+
 /* This is for the code highlighting sections */
 section div.codehilite, section div.pygments_murphy {
 	margin-bottom: 15px;
@@ -310,6 +314,20 @@ section div.codehilite, section div.pygments_murphy {
 	background: #fff;
 	padding: 10px 0 10px 20px;
 	clear: both;
+}
+
+section table.codehilitetable {
+    width: 100%;
+    margin-bottom: 15px;
+    max-height: 48em;
+    line-height: 1.2;
+    overflow: auto;
+    padding: 10px 0 10px 20px;
+    background: #fff;
+}
+
+section table.codehilitetable div.codehilite {
+    padding-left: 5px;
 }
 
 section pre {
@@ -343,16 +361,7 @@ section div + p {
 	text-indent: 15px;
 }
 
-
-section ul {
-	margin-bottom: 5px;
-}
-
-section ul li:before {
-	content: "\00BB \0020";
-}
-
-section h1 {
+section h1, #Yearly h1 {
 	font-size: 150%;
 	line-height: 1.5;
 }
@@ -387,34 +396,35 @@ section ol {
 }
 
 section ul {
+	margin-bottom: 5px;
     list-style: inside;
     list-style-type: disc;
 }
 
 /* Specialise the first h1 in a section, make it look like a title */
 
-section > h1:first-of-type {
-	height: 40px;
-	font-size: 1.3em;
-	line-height: 2.5;
+section > h1:first-of-type, #Yearly > h1:first-of-type {
 	background: #404040;
-	padding: 0 0 0 10px;
 	margin-bottom: 10px;
 	text-transform: capitalize;	
 	border-bottom: 1px solid rgba(0, 0, 0, 0.4);
 }
 
-section h1:first-of-type a {
+section h1:first-of-type a, #Yearly > h1:first-of-type a{
+    height: 40px;
+	line-height: 2;
 	color: #ee7b00;
     background-color: inherit;
 	text-decoration: none;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+    display: block;
+	padding: 0 0 0 10px;
 }
 
-section h1:first-of-type a:hover {
-    background-color: #616161
+section h1:first-of-type:hover, #Yearly > h1:first-of-type:hover {
+    background-color: #515151;
 }
 
 /* 
@@ -440,8 +450,50 @@ section > p:first-of-type:first-line {
 }
 
 /*
+ * Set up the different style for the yearly archives
+ */
+
+.monthly > h1 {
+    padding-left: 10px;
+    font-size: 1.2em;
+}
+
+.monthly > h2 {
+    padding-top: 10px;
+    font-size: 1.1em;
+    padding-left: 20px;
+    padding-bottom: 5px;
+}
+
+.monthly > ul {
+    padding: 0;
+    margin: 0;
+    padding-left: 50px;
+    margin-top: -1.85em;
+}
+
+.monthly > ul li:before {
+    content: "- ";
+}
+
+.monthly {
+    padding-bottom: 5px;
+}
+
+#Yearly .monthly:last-child {
+    padding-bottom: 10px;
+}
+    
+
+/*
  * Redifine stuff that was undefined at the top
  */
 sup {
     vertical-align: super;
+}
+
+blockquote {
+    margin-left: 30px;
+    border-left: 3px solid #369;
+    margin-right: 60px;
 }

@@ -1,27 +1,27 @@
 <%inherit file="site.mako" />
-<h1>${year}</h1>
+<div id="Yearly">
+<h1><a href="/${year}/">Archive for ${year}</a></h1>
 
-% for ((unused, month), posts) in monthly: 
-<% curday = 0; first = True %>
+% for ((monthnum, month), posts) in monthly: 
+    <% curday = 0; first = True %>
     <div class="monthly">
-        <h1>${month}</h1>
-        <ul>
+        <h1><a href="/${year}/${monthnum}/">${month}</a></h1>
         % for post in posts:
-                <% postday = post.date.strftime("%d") %>
-                % if curday != postday:
-                    % if first == False:
-                    </ul>
-                    % endif
-                    <% curday = postday; first= False %>
-                    <h2>${postday}</h2>
-                    <ul>
-                % endif
-                <li>${post.title}</li>
+            <% postday = post.date.strftime("%d") %>
+            % if curday != postday:
+                % if first == False:
+                </ul>
+            % endif
+            <% curday = postday; first= False %>
+            <h2>${postday}</h2>
+            <ul>
+            % endif
+            <li><a href="${post.permapath()}">${post.title}</a></li>
         % endfor
-                    </ul>
-        </ul>
-    </div>
+    </ul>
+</div>
 % endfor
+</div>
 
 <ul class="prevnext">
     % if prev_link:
