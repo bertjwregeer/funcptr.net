@@ -26,18 +26,18 @@
         </script>
     </head>
     <body>
+        <header>
+        ${next.header()}
+        </header>
         <div id="Mwrapper">
             <div id="MainContent">
                 ${next.body()}
             </div>
         </div>
         <aside>
-            <header>
-                ${next.header()}
-            </header>
-            <nav>
-                ${next.menu()}
-            </nav>
+        <nav>
+        ${next.menu()}
+        </nav>
         </aside>
 
         <footer>
