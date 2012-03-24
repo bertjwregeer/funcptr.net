@@ -1,25 +1,11 @@
 # -*- coding: utf-8 -*-
 
-######################################################################
-# This is your site's Blogofile configuration file.
-# www.Blogofile.com
-#
-# This file doesn't list every possible setting, it relies on defaults
-# set in the core blogofile _config.py. To see where the default
-# configuration is on your system run 'blogofile info'
-#
-######################################################################
-
-######################################################################
-# Basic Settings
-#  (almost all sites will want to configure these settings)
-######################################################################
 ## site_url -- Your site's full URL
 # Your "site" is the same thing as your _site directory.
 #  If you're hosting a blogofile powered site as a subdirectory of a larger
 #  non-blogofile site, then you would set the site_url to the full URL
 #  including that subdirectory: "http://www.yoursite.com/path/to/blogofile-dir"
-site.url = "http://0x58.com/"
+site.url = "http://funcptr.net/"
 
 site.css = "/css/"
 
@@ -44,7 +30,7 @@ blog.name = "funcptr"
 
 ## blog_description -- A short one line description of the blog
 # used in the RSS/Atom feeds.
-blog.description = "Technical adventures of an software engineer"
+blog.description = "An engineers technical notebook"
 
 ## blog_timezone -- the timezone that you normally write your blog posts from
 blog.timezone = "US/Mountain"
