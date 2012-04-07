@@ -324,7 +324,7 @@ section a[rel="footnote"] {
 }
 
 /* This is for the code highlighting sections */
-section div.codehilite, section div.pygments_murphy {
+section div.codehilite, section div.linenodiv, section div.pygments_murphy {
     margin-bottom: 15px;
     max-height: 48em;
     line-height: 1.2;
@@ -340,15 +340,19 @@ section table.codehilitetable {
     max-height: 48em;
     line-height: 1.2;
     overflow: auto;
-    padding: 10px 0 10px 20px;
+    padding: 10px 0 10px 5px;
     background: #fff;
     clear: both;
     width: 100%;
 }
 
-section table.codehilitetable td.code {
+section table.codehilitetable tbody {
     display: block;
+    max-height: 48em;
     overflow: auto;
+}
+
+section table.codehilitetable td.code {
     width: 100%;
 }
 
@@ -358,10 +362,10 @@ section table.codehilitetable td.linenos {
     max-width: 4em;
 }
 
-section table.codehilitetable td.code div.codehilite {
-    padding-bottom: 0px;
-    padding-left: 5px;
-    overflow: auto;
+section table.codehilitetable td div {
+    max-height: none;
+    padding: none;
+    margin-bottom: 0px;
 }
 
 section pre {
@@ -452,6 +456,23 @@ section h1:first-of-type a, #Yearly > h1:first-of-type a, #generic > h1:first-of
 
 section h1:first-of-type:hover, #Yearly > h1:first-of-type:hover, #generic > h1:first-of-type:hover {
     background-color: #515151;
+}
+
+#social {
+    margin-left: 30px;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#social div {
+    display: inline;
+    height: 15px;
+    padding-right: 10px;
+    text-align: center;
+    margin: auto;
 }
 
 /*
