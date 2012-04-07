@@ -24,6 +24,9 @@
                 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
             })();
         </script>
+        <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+            {parsetags: 'explicit'}
+        </script>
     </head>
     <body>
         <header>
@@ -44,6 +47,7 @@
         ${next.footer()}
         </footer>
     </body>
+
 </html>
 
 <%def name="header()">
