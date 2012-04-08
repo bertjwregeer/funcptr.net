@@ -420,15 +420,35 @@ section p + h1, section p + h2, section p + h3 {
     margin-top: 10px;
 }
 
+section > ul, section > ol {
+    margin-left: 20px;
+}
+
 section ol {
     list-style: inside;
-    list-style-type: decimal-leading-zero;
+    list-style-type: decimal;
+    margin-bottom: 15px;
+    padding-right: 10px;
+    text-indent: -1em;
+    padding-left: 1em;
 }
 
 section ul {
     margin-bottom: 5px;
     list-style: inside;
     list-style-type: disc;
+    margin-bottom: 15px;
+    padding-right: 10px;
+    text-indent: -1em;
+    padding-left: 1em;
+}
+
+section strong {
+    font-weight: bold;
+}
+
+section em {
+    font-style: italic;
 }
 
 /* Specialise the first h1 in a section, make it look like a title */
