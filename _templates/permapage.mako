@@ -24,3 +24,4 @@
 </%def>
 
 <%def name="post_title()">${post.title}</%def>
+<%def name="canonical()"><link rel="canonical" href="${post.permalink}"></%def>
