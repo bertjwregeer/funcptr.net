@@ -44,10 +44,10 @@ def write_blog_chron(posts, root, findex=False):
         bf.writer.materialize_template("chronological.mako", fn, env)
         page_num += 1
 
-def write_daily_archive(posts, root, findex=False):
-    return write_monthly_archive(posts, root, findex=findex)
+def write_daily_archive(posts, root, title=None, findex=False):
+    return write_monthly_archive(posts, root, title=title, findex=findex)
 
-def write_monthly_archive(posts, root, findex=False):
+def write_monthly_archive(posts, root, title=None, findex=False):
     page_num = 1
     post_num = 0
     while len(posts) > post_num:
@@ -76,7 +76,8 @@ def write_monthly_archive(posts, root, findex=False):
         env = {
             "posts": page_posts,
             "next_link": next_link,
-            "prev_link": prev_link
+            "prev_link": prev_link,
+            "title": title
         }
         bf.writer.materialize_template("chronological.mako", fn, env)
         page_num += 1

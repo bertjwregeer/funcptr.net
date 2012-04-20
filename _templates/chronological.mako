@@ -16,3 +16,5 @@
  <li><a href="${next_link}">Next Page »</a></li>
 % endif
 </ul>
+
+<%def name="post_title()">${title if title else ''}</%def>

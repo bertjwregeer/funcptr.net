@@ -41,4 +41,4 @@ to takes no arguments and returns void.
 </section>
 </article>
 
-        
+<%def name="post_title()">About this technical notebook</%def>

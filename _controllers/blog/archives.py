@@ -13,6 +13,21 @@ import chronological
 
 blog = bf.config.controllers.blog
 
+number_to_month = {
+        '01': "January",
+        '02': "February",
+        '03': "March",
+        '04': "April",
+        '05': "May",
+        '06': "June",
+        '07': "July",
+        '08': "August",
+        '09': "September",
+        '10': "October",
+        '11': "November",
+        '12': "December"
+        }
+
 
 def run():
     write_daily_archives()
@@ -34,13 +49,15 @@ def write_daily_archives():
     for (year, month, day), posts in sorted(blog.archive_posts_yearmonthday.items(), key=operator.itemgetter(0), reverse=True):
         posts = sorted(posts, key=lambda p: p.date, reverse=True)
         link = '{year}/{month}/{day}'.format(year=year, month=month, day=day)
-        chronological.write_daily_archive(posts, root=link, findex=True)
+        title = 'Archive for {month}, {day} of {year}'.format(year=year, month=number_to_month[month], day=day)
+        chronological.write_daily_archive(posts, root=link, findex=True, title=title)
 
 def write_monthly_archives():
     for (year, month), posts in sorted(blog.archive_posts_yearmonth.items(), key=operator.itemgetter(0), reverse=True):
         posts = sorted(posts, key=lambda p: p.date, reverse=True)
         link = '{year}/{month}'.format(year=year, month=month)
-        chronological.write_monthly_archive(posts, root=link, findex=True)
+        title = 'Archive for {month} of {year}'.format(month=number_to_month[month], year=year)
+        chronological.write_monthly_archive(posts, root=link, findex=True, title=title)
 
 def write_yearly_archives():
     years = blog.archive_posts_year.keys();

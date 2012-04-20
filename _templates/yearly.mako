@@ -34,3 +34,6 @@
         <li><a href="${next_link}">Next Year »</a></li>
     % endif
 </ul>
+
+
+<%def name="post_title()">Archive for ${year}</%def>

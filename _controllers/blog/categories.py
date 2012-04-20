@@ -33,14 +33,14 @@ def write_categories():
         categories.update(post.categories)
     for category, category_posts in blog.categorized_posts.items():
         #Write category RSS feed
-        rss_path = bf.util.fs_site_path_helper(
-            blog.path, blog.category_dir,
-            category.url_name, "feed")
-        feed.write_feed(category_posts,rss_path, "rss.mako")
-        atom_path = bf.util.fs_site_path_helper(
-            blog.path, blog.category_dir,
-            category.url_name, "feed", "atom")
-        feed.write_feed(category_posts, atom_path, "atom.mako")
+#        rss_path = bf.util.fs_site_path_helper(
+#            blog.path, blog.category_dir,
+#            category.url_name, "feed")
+#        feed.write_feed(category_posts,rss_path, "rss.mako")
+#        atom_path = bf.util.fs_site_path_helper(
+#            blog.path, blog.category_dir,
+#            category.url_name, "feed", "atom")
+#        feed.write_feed(category_posts, atom_path, "atom.mako")
         page_num = 1
         while True:
             path = bf.util.path_join(root, category.url_name,
@@ -65,7 +65,8 @@ def write_categories():
                 "category": category,
                 "posts": page_posts,
                 "prev_link": prev_link,
-                "next_link": next_link
+                "next_link": next_link,
+                "title": "All {category} posts".format(category=category.name)
             }
             bf.writer.materialize_template("chronological.mako", path, env)
             
