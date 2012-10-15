@@ -61,10 +61,10 @@
     <%include file="menu.mako" />
 </%def>
 <%def name="post_title()" />
-<%def name="cur_title()">${bf.config.blog.name}${self.page_title()}</%def>
+<%def name="cur_title()">${self.page_title()}${bf.config.blog.name}</%def>
 <%def name="page_title()"><%
         if len(capture(self.post_title)) > 0:
-            return u' - {0}'.format(capture(self.post_title))
+            return u'{0} - '.format(capture(self.post_title))
         else:
             return ''
 %></%def>
